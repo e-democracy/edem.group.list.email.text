@@ -12,7 +12,7 @@
     manager="gs.group.list.email.text.interfaces.IAppendix"
     class="gs.group.list.email.text.footer.Footer"
     template="browser/templates/footer.pt"
-    permission="zope2.View"
+    permission="zope2.Public"
     weight="30"
     title="E-Democracy Footer" />
 
