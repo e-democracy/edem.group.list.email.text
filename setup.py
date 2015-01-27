@@ -9,10 +9,10 @@ version = get_version()
 setup(
     name='edem.group.list.email.text',
     version=version,
-    description="E-Democracy customization of plain text messages in a group",
+    description="E-Democracy customization of plain text messages in a "
+                "group",
     long_description=open("README.txt").read() + "\n" +
     open(os.path.join("docs", "HISTORY.txt")).read(),
-    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers for values
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
@@ -21,14 +21,14 @@ setup(
         "License :: OSI Approved :: GNU General Public License v3 or later "
         "(GPLv3+)",
         "Natural Language :: English",
-        "Operating System :: POSIX :: Linux"
+        "Operating System :: POSIX :: Linux",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords='',
     author='Bill Bushey',
     author_email='bill.bushey@e-democracy.org',
-    url='http://www.e-democracy.org/',
+    url='https://github.com/e-democracy/edem.group.list.email.text',
     license='GPL 3',
     packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['edem', 'edem.group', 'edem.group.list',
@@ -37,9 +37,11 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
+        'zope.tal',
+        'zope.tales',
+        'zope.viewlet',
         'edem.skin',
         'gs.group.list.email.text'
-        # -*- Extra requirements: -*-
     ],
     entry_points="""
     # -*- Entry points: -*-
