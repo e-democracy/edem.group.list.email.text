@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configure xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
-  xmlns:five="http://namespaces.zope.org/five"
-  i18n_domain="groupserver">
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="edem.group.list.email.text">
 
-  <!-- Place declarations here. -->
+  <include package="zope.viewlet" file="meta.zcml" />
+
   <browser:viewlet
     name="edem-group-list-email-text-footer"
     for="gs.group.list.email.text.interfaces.IPost"
