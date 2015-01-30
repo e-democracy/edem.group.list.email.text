@@ -13,19 +13,30 @@
     class=".signature.Signature"
     template="browser/templates/signature.pt"
     permission="zope2.Public"
-    weight="19"
+    weight="15"
     title="E-Democracy User Signature" />
 
+  <browser:viewlet
+    name="edem-group-list-email-text-group-footer"
+    for="gs.group.list.email.text.interfaces.IPost"
+    layer="edem.skin.interfaces.IEDemLayer"
+    manager="gs.group.list.email.text.interfaces.IAppendix"
+    class=".footer.GroupFooter"
+    template="browser/templates/group_footer.pt"
+    permission="zope2.Public"
+    weight="30"
+    title="E-Democracy Group Footer" />
 
   <browser:viewlet
-    name="edem-group-list-email-text-footer"
+    name="edem-group-list-email-text-site-footer"
     for="gs.group.list.email.text.interfaces.IPost"
     layer="edem.skin.interfaces.IEDemLayer"
     manager="gs.group.list.email.text.interfaces.IAppendix"
     class="gs.group.list.email.text.footer.Footer"
-    template="browser/templates/footer.pt"
+    template="browser/templates/site_footer.pt"
     permission="zope2.Public"
-    weight="30"
-    title="E-Democracy Footer" />
+    weight="40"
+    title="E-Democracy Site Footer" />
+
 
 </configure>
