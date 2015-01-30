@@ -4,6 +4,18 @@
            i18n_domain="edem.group.list.email.text">
 
   <include package="zope.viewlet" file="meta.zcml" />
+  
+  <browser:viewlet
+    name="edem-group-list-email-text-signature"
+    for="gs.group.list.email.text.interfaces.IPost"
+    layer="edem.skin.interfaces.IEDemLayer"
+    manager="gs.group.list.email.text.interfaces.IAppendix"
+    class=".signature.Signature"
+    template="browser/templates/signature.pt"
+    permission="zope2.Public"
+    weight="19"
+    title="E-Democracy User Signature" />
+
 
   <browser:viewlet
     name="edem-group-list-email-text-footer"

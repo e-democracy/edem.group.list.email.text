@@ -1,0 +1,10 @@
+<tal:block
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  tal:condition="context/messages/email_footer.txt">
+
+<span tal:replace="view/postingUser/name"/>
+<tal:block tal:define="llity python:view.postingUser.get_property('neighbourhood', '');
+                       plity python:view.postingUser.get_property('region', '')"><span tal:replace="llity"/><tal:block tal:condition="python:llity and
+plity">, </tal:block><span tal:replace="plity"/></tal:block>
+<tal:block tal:condition="view/postingUser | nothing">About/contact <span tal:replace="view/postingUser/name"/>: <span tal:replace="view/postingUserAbsoluteUrl"/></tal:block>
+</tal:block>
