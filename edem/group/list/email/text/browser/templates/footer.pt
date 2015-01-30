@@ -1,5 +1,0 @@
-<tal:block
-  xmlns:tal="http://xml.zope.org/namespaces/tal"
-  tal:condition="context/messages/email_footer.txt">
-<tal:block content="structure context/messages/email_footer.txt">Additional messages brought to you by E-Democracy.</tal:block>
-</tal:block>
