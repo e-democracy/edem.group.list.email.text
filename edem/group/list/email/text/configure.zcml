@@ -18,7 +18,7 @@
 
   <browser:viewlet
     name="edem-group-list-email-text-group-footer"
-    for="gs.group.list.email.text.interfaces.IPost"
+    for="gs.group.list.email.base.interfaces.IPost"
     layer="edem.skin.interfaces.IEDemLayer"
     manager="gs.group.list.email.text.interfaces.IAppendix"
     class=".footer.GroupFooter"
