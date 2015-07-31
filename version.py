@@ -57,7 +57,7 @@ def get_version():
         if release:
             version_string = version
         else:
-            version_string = "%s.dev%s-%s" % (version, datestring, commithash)
+            version_string = "%s.dev%s" % (version, datestring)
 
     except CommandError:
         version_string = parse_version_from_package()
