@@ -13,7 +13,7 @@
     class=".signature.Signature"
     template="browser/templates/signature.pt"
     permission="zope2.Public"
-    weight="15"
+    weight="20"
     title="E-Democracy User Signature" />
 
   <browser:viewlet
@@ -27,6 +27,17 @@
     weight="30"
     title="E-Democracy Group Footer" />
 
+<browser:viewlet
+    name="gs-group-list-email-text-appendix-footer"
+    for="gs.group.list.email.base.interfaces.IPost"
+    layer="edem.skin.interfaces.IEDemLayer"
+    manager="gs.group.list.email.text.interfaces.IAppendix"
+    class=".footer.GroupFooter"
+    template="browser/templates/appendix_footer.pt"
+    permission="zope2.Public"
+    weight="40"
+    title="E-Democracy Appendix Footer" />
+
   <browser:viewlet
     name="edem-group-list-email-text-footer"
     for="gs.group.list.email.base.interfaces.IPost"
@@ -35,7 +46,7 @@
     class="gs.group.list.email.text.footer.Footer"
     template="browser/templates/site_footer.pt"
     permission="zope2.Public"
-    weight="40"
+    weight="50"
     title="E-Democracy Site Footer" />
 
 

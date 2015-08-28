@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-from gs.group.list.email.text.viewlet import EmailMessageViewlet
+from gs.group.list.email.text.footer import Footer
 from zope.cachedescriptors.property import Lazy
 
 
-class GroupFooter(EmailMessageViewlet):
+class GroupFooter(Footer):
 
     @Lazy
     def groupFooter(self):
@@ -13,3 +13,7 @@ class GroupFooter(EmailMessageViewlet):
     @Lazy
     def showGroupFooter(self):
         return bool(self.groupFooter)
+
+    @Lazy
+    def groupEmail(self):
+        return self.listInfo.get_property('mailto')
