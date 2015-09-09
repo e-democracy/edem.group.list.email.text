@@ -1,18 +1,14 @@
-# -*- coding: utf-8 -*-
+# -*- coding=utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
 #-----------------------------------------------------------------------------#
 
-version = '2.3.1'
-release = False
+version='2.3.2'
+release=False
 
 #-----------------------------------------------------------------------------#
 
-import sys
-if (sys.version_info < (3, )):
-    from commands import getstatusoutput
-else:
-    from subprocess import getstatusoutput  # lint:ok
+import commands
 import datetime
 import os
 import glob
@@ -20,23 +16,22 @@ import glob
 class CommandError(Exception):
     pass
 
-
 def execute_command(commandstring):
-    status, output = getstatusoutput(commandstring)
+    status, output = commands.getstatusoutput(commandstring)
     if status != 0:
         raise CommandError
     return output
 
-
 def parse_version_from_package():
     try:
-        pkginfo = os.path.join(glob.glob('*.egg-info')[0], 'PKG-INFO')
+        pkginfo = os.path.join(glob.glob('*.egg-info')[0],
+                                         'PKG-INFO')
     except:
         pkginfo = ''
 
     version_string = ''
     if os.path.exists(pkginfo):
-        for line in open(pkginfo):
+        for line in file(pkginfo):
             if line.find('Version: ') == 0:
                 version_string = line.strip().split('Version: ')[1].strip()
         if not version_string:
@@ -46,7 +41,6 @@ def parse_version_from_package():
 
     return version_string
 
-
 def get_version():
     try:
         gitLog = execute_command('git log -1 --format="%ct-%H"')
@@ -54,17 +48,12 @@ def get_version():
         dt = datetime.datetime.utcfromtimestamp(float(commitdate))
         datestring = dt.strftime('%Y%m%d%H%M%S')
 
-        if release:
-            version_string = version
-        else:
-            version_string = "%s.dev%s" % (version, datestring)
+        version_string = "%s-%s-%s" % (version, datestring, commithash)
 
-    except CommandError:
+    except CommandError, IntegerError:
         version_string = parse_version_from_package()
 
     return version_string
 
-
 if __name__ == '__main__':
-    import sys
-    sys.stdout.write('{0}\n'.format(get_version()))
+    print get_version()
