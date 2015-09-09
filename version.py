@@ -1,5 +1,5 @@
 # -*- coding=utf-8 -*-
-from __future__ import absolute_import, unicode_literals
+from __future__ import absolute_import, unicode_literals, print_function
 
 #-----------------------------------------------------------------------------#
 
@@ -48,7 +48,7 @@ def get_version():
         dt = datetime.datetime.utcfromtimestamp(float(commitdate))
         datestring = dt.strftime('%Y%m%d%H%M%S')
 
-        version_string = "%s-%s-%s" % (version, datestring, commithash)
+        version_string = "%s.dev%s" % (version, datestring)
 
     except CommandError, IntegerError:
         version_string = parse_version_from_package()
@@ -56,4 +56,4 @@ def get_version():
     return version_string
 
 if __name__ == '__main__':
-    print get_version()
+    print(get_version())
