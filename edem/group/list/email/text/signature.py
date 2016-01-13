@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-from gs.group.list.email.text.viewlet import EmailMessageViewlet
+from gs.group.list.email.base.viewlet import EmailMessageViewlet
 from zope.cachedescriptors.property import Lazy
 from zope.component import createObject
 
